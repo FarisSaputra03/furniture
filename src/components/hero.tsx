@@ -16,9 +16,21 @@ export default function Hero() {
             />
           </div>
           <div className="max-w-screen-lg m-auto h-[70vh] py-5 my-96 text-center text-2xl rounded-2xl">
-            <h1 className="text-7xl text-white italic font-bold">Stylish Kitchen Furniture</h1>
-            <p className="text-gray-900 font-semibold">Unique Furniture  Style Design for Your Family and Welcome</p>
-            <p className="text-gray-900 font-semibold">Our Shop, 30% Offer All Stylish Kitchen Furniture</p>
+            <h1 className="text-7xl text-white italic font-bold">
+              Stylish Kitchen Furniture
+            </h1>
+            <p className="text-gray-900 font-semibold">
+              Unique Furniture Style Design for Your Family and Welcome
+            </p>
+            <p className="text-gray-900 font-semibold">
+              Our Shop, 30% Offer All Stylish Kitchen Furniture
+            </p>
+            <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-yellow-500 bg-yellow-500 text-white">
+              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+              <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
+                Purchase Now
+              </span>
+            </button>
           </div>
         </div>
       </div>

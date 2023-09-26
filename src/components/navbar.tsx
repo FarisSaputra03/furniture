@@ -60,7 +60,7 @@ export default function Navbar() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger>Shop</MenubarTrigger>
-              <MenubarContent>
+              <MenubarContent className="bg-white">
                 <MenubarCheckboxItem>Shop Grid</MenubarCheckboxItem>
                 <MenubarCheckboxItem>Shop List</MenubarCheckboxItem>
                 <MenubarSeparator />
@@ -77,7 +77,7 @@ export default function Navbar() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger>Pages</MenubarTrigger>
-              <MenubarContent>
+              <MenubarContent className="bg-white">
                 <MenubarRadioGroup>
                   <MenubarRadioItem value="about us">About Us</MenubarRadioItem>
                   <MenubarRadioItem value="cart">Cart</MenubarRadioItem>
@@ -101,7 +101,7 @@ export default function Navbar() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger>Blog</MenubarTrigger>
-              <MenubarContent>
+              <MenubarContent className="bg-white">
                 <MenubarRadioGroup>
                   <MenubarSub>
                     <MenubarSubTrigger>Blog Grid</MenubarSubTrigger>
