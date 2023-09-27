@@ -58,12 +58,6 @@ export default function Sale() {
       price: "$40.00",
       categori: "This Year",
     },
-    {
-        img: "/img/new4.webp",
-        title: "Elona beside grey table",
-        price: "$40.00",
-        categori: "This Month",
-      },
       {
         img: "/img/new4.webp",
         title: "Elona beside grey table",
