@@ -33,7 +33,7 @@ export default function Select() {
                     style={{ color: "black" }}
                     className="inline-flex items-center"
                   >
-                    {data.icon}
+                  {<data.icon size="3.5rem" />}
                   </div>
                   <h2 className="title-font font-medium text-3xl text-black">
                     {data.title}

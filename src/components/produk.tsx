@@ -276,7 +276,7 @@ export default function Produk() {
               // setBoluKukus(false);
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-xs  ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm  ${
               selectedTitle == "All"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -296,7 +296,7 @@ export default function Produk() {
               // setBakpiaKukus(true);
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
               selectedTitle == "Just Now"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -314,7 +314,7 @@ export default function Produk() {
               filterProduk("New Arrival");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
               selectedTitle == "New Arrival"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -332,7 +332,7 @@ export default function Produk() {
               filterProduk("Top Seals");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
               selectedTitle == "Top Seals"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -350,7 +350,7 @@ export default function Produk() {
               filterProduk("Best Rating");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
               selectedTitle == "Best Rating"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -380,7 +380,7 @@ export default function Produk() {
                         {data.title}
                       </h2>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center font-semibold text-yellow-500">
                       <p className="mt-1">{data.price}</p>
                     </div>
                   </div>

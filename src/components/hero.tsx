@@ -25,8 +25,8 @@ export default function Hero() {
             <p className="text-gray-900 font-semibold">
               Our Shop, 30% Offer All Stylish Kitchen Furniture
             </p>
-            <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-yellow-500 bg-yellow-500 text-white">
-              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+            <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-yellow-500 bg-yellow-500 text-white">
+              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
               <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
                 Purchase Now
               </span>
