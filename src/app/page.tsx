@@ -6,6 +6,7 @@ import Best from "@/components/best";
 import Colection from "@/components/colection";
 import Sale from "@/components/sale";
 import Furniture_Logo from "@/components/furniturelogo";
+import Footer1 from "@/components/footer1";
 export default function Home() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function Home() {
       <Colection />
       <Sale />
       <Furniture_Logo />
+      <Footer1 />
     </>
   );
 }
