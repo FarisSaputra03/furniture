@@ -153,7 +153,7 @@ export default function Footer() {
 
       <div className="bg-gray-100">
         <div className="justify-center py-4 px-5 flex">
-          <p className="text-gray-500 text-base text-center font-semibold flex sm:text-left">
+          <div className="text-gray-500 text-base text-center font-semibold flex sm:text-left">
             © 2023 
             <p className="text-yellow-500 px-1">Furbar</p>  Made with
             <svg
@@ -171,7 +171,7 @@ export default function Footer() {
               />
             </svg>
             <p className="text-yellow-500 px-1">codecarnival</p>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

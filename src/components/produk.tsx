@@ -276,7 +276,7 @@ export default function Produk() {
               // setBoluKukus(false);
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm  ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs  ${
               selectedTitle == "All"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -296,7 +296,7 @@ export default function Produk() {
               // setBakpiaKukus(true);
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
               selectedTitle == "Just Now"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -314,7 +314,7 @@ export default function Produk() {
               filterProduk("New Arrival");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
               selectedTitle == "New Arrival"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -332,7 +332,7 @@ export default function Produk() {
               filterProduk("Top Seals");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
               selectedTitle == "Top Seals"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -350,7 +350,7 @@ export default function Produk() {
               filterProduk("Best Rating");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
               selectedTitle == "Best Rating"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
