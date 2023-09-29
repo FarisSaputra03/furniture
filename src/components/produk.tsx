@@ -14,7 +14,7 @@ export default function Produk() {
     },
     {
       img: "/img/product-02.webp",
-      title: "Simple minimal chair",
+      title: "Simple minimal chair green",
       price: "$40.00",
       categori: "All",
     },
@@ -376,7 +376,7 @@ export default function Produk() {
                   </a>
                   <div className="mt-4 flex flex-col space-y-1">
                     <div className="text-center">
-                      <h2 className="text-gray-900 title-font text-lg font-medium">
+                      <h2 className="text-gray-900 title-font text-xs font-medium">
                         {data.title}
                       </h2>
                     </div>

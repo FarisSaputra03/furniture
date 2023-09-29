@@ -21,7 +21,7 @@ export default function Furniture_Logo() {
   ];
   return (
     <section className="text-gray-600 body-font">
-      <div className="grid grid-cols-1 md:grid-cols-5 py-5">
+      <div className="grid grid-cols-2 md:grid-cols-5 py-5">
         {listIcon.map((data: any, index) => (
           <div key={index + 1} className="w-full gap-5 p-3">
             <div className="p-8 w-full">

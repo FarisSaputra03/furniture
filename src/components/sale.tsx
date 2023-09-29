@@ -58,30 +58,30 @@ export default function Sale() {
       price: "$40.00",
       categori: "This Year",
     },
-      {
-        img: "/img/new4.webp",
-        title: "Elona beside grey table",
-        price: "$40.00",
-        categori: "This Month",
-      },
-      {
-        img: "/img/new2.webp",
-        title: "High quality vase bottle",
-        price: "$40.00",
-        categori: "This Month",
-      },
-      {
-        img: "/img/new.webp",
-        title: "Pendant Chandelier Light",
-        price: "$40.00",
-        categori: "This Month",
-      },
-      {
-        img: "/img/new7.webp",
-        title: "Simple minimal chair",
-        price: "$40.00",
-        categori: "This Month",
-      },
+    {
+      img: "/img/new4.webp",
+      title: "Elona beside grey table",
+      price: "$40.00",
+      categori: "This Month",
+    },
+    {
+      img: "/img/new2.webp",
+      title: "High quality vase bottle",
+      price: "$40.00",
+      categori: "This Month",
+    },
+    {
+      img: "/img/new.webp",
+      title: "Pendant Chandelier Light",
+      price: "$40.00",
+      categori: "This Month",
+    },
+    {
+      img: "/img/new7.webp",
+      title: "Simple minimal chair",
+      price: "$40.00",
+      categori: "This Month",
+    },
   ];
 
   const filterProduk = (title: string) => {
@@ -163,7 +163,46 @@ export default function Sale() {
         </nav>
       </div>
 
-      <div>
+      <div className="flex sm:hidden">
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          className="mySwiper"
+          scrollbar={{ draggable: true }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log("slide change")}
+        >
+          <div>
+            {listFiltered.map((data: any, index) => (
+              <SwiperSlide key={index + 1} className="card hover:shadow flex ">
+                <Image
+                  width={500}
+                  height={100}
+                  src={data.img}
+                  alt="Furniture"
+                />
+                <div className="flex justify-center">
+                  <div
+                    onClick={() => {
+                      window.location.href = data.href;
+                    }}
+                    className="font-bold text-gray-500 py-2 px-5"
+                  >
+                    {data.title}
+                  </div>
+                </div>
+                <div className="text-center font-semibold text-yellow-500">
+                  <p className="mt-1">{data.price}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </div>
+        </Swiper>
+      </div>
+
+      <div className="hidden sm:flex">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}
