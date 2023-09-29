@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 export default function Best() {
   return (
-    <div className="p-10">
+    <div className="p-10 ">
       <div className="relative sm:hidden flex w-full">
         <div className="flex justify-center flex-col gap-8">
           <div>

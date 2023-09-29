@@ -256,8 +256,8 @@ export default function Produk() {
     filterProduk(selectedTitle);
   }, []);
   return (
-    <div>
-      <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+    <div className="">
+      <div className="flex  flex-wrap w-full mb-20 flex-col items-center text-center">
         <h1 className="sm:text-3xl text-2xl italic font-bold title-font mb-2 text-gray-900">
           New Product
         </h1>

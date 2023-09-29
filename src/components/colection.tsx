@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 export default function Colection() {
   return (
-    <section className="p-5">
+    <section className="p-5 ">
       <div className="flex px-5 py-10 md:flex-row flex-col items-center">
         <div className="md:w-1/2 lg:pr-24 flex flex-col md:items-start">
           <div className="flex gap-2">

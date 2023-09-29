@@ -92,7 +92,7 @@ export default function Sale() {
     filterProduk(selectedTitle);
   }, []);
   return (
-    <div>
+    <div className="">
       <div className="pt-10">
         <div>
           <h1 className="text-2xl font-extrabold italic"># Sale Product</h1>
