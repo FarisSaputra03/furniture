@@ -132,7 +132,7 @@ export default function Footer() {
                 eiusmod temp incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim
               </p>
-              <div className="flex">
+              <div className="flex justify-center sm:justify-start">
                 <div className="p-2 hover:text-yellow-500">
                   <SlSocialTwitter size="1.5rem" />
                 </div>

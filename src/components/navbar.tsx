@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className=" flex py-5 px-5 flex-col  md:flex-row">
         <div className="flex font-semibold items-center text-black">
           <div className="flex px-10 justify-between">
-            <div className="flex sm:hidden">
+            <div className="flex pr-8 sm:hidden ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
