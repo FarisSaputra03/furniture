@@ -17,11 +17,11 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-interface NavbarProps{
-  onClick: () => void
+interface NavbarProps {
+  onClick: () => void;
 }
-const Navbar = (props:Partial<NavbarProps>) => {
-  const {onClick=()=>{}} =props;
+const Navbar = (props: Partial<NavbarProps>) => {
+  const { onClick = () => {} } = props;
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 90) {
@@ -42,8 +42,8 @@ const Navbar = (props:Partial<NavbarProps>) => {
     >
       <div className=" flex py-5 px-5 flex-col  md:flex-row">
         <div className="flex font-semibold items-center text-black">
-          <div className="flex px-10 justify-between">
-            <div className="flex pr-8 sm:hidden " onClick={onClick}>
+          <div className="flex justify-between">
+            <div className="flex sm:hidden " onClick={onClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -59,21 +59,23 @@ const Navbar = (props:Partial<NavbarProps>) => {
                 />
               </svg>
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-8 h-8"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span className="pt-1 text-base">Furniture</span>
+            <div className="flex justify-center pl-20">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-8 h-8"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span className="pt-1 text-base">Furniture</span>
+            </div>
           </div>
-          <div className="flex">
+          <div className="flex pl-11">
             <div className="flex sm:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +173,6 @@ const Navbar = (props:Partial<NavbarProps>) => {
                     <MenubarSub>
                       <MenubarSubTrigger>Blog Grid</MenubarSubTrigger>
                       <MenubarSubContent className="bg-white">
-                        <MenubarItem>Blog Grid</MenubarItem>
                         <MenubarItem>Blog Grid Left Sidebar</MenubarItem>
                         <MenubarItem>Blog Grid Right Sidebar</MenubarItem>
                       </MenubarSubContent>
@@ -262,6 +263,6 @@ const Navbar = (props:Partial<NavbarProps>) => {
       </div>
     </header>
   );
-}
+};
 
 export default Navbar;

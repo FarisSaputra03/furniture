@@ -16,8 +16,8 @@ export default function Colection() {
               Off
             </p>
           </div>
-          <div className="flex sm:flex-col">
-            <p className="break-words text-xs">
+          <div className="flex md:flex-col">
+            <p className="font-size: 0.75rem">
               Lorem ipsum dolor sit amet, consectetur adipisicing sed do eiusmol
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
               mini veniam, quis nostrud exercitation ullamco laboris nisi ut

@@ -95,7 +95,7 @@ export default function Sale() {
     <div className="">
       <div className="pt-10">
         <div>
-          <h1 className="text-2xl font-extrabold italic"># Sale Product</h1>
+          <h1 className="text-2xl px-3 py-2 font-extrabold italic"># Sale Product</h1>
         </div>
         <nav
           className="-mb-0.5 flex justify-center  space-x-6"
