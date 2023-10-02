@@ -5,7 +5,7 @@ export default function Hero() {
     <div>
       <div className="bg-white p-10"></div>
       <div className="flex sm:hidden">
-        <div className="flex justify-center flex-grow w-full">
+        <div className="flex justify-center p-2 flex-grow w-full">
           <input
             type="text"
             id="text"

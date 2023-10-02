@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
 import {
@@ -16,7 +17,11 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-export default function Navbar() {
+interface NavbarProps{
+  onClick: () => void
+}
+const Navbar = (props:Partial<NavbarProps>) => {
+  const {onClick=()=>{}} =props;
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 90) {
@@ -32,11 +37,13 @@ export default function Navbar() {
     }
   });
   return (
-    <header className={`md:w-full w-screen fixed z-40 ${color ? "bg-white" : ""}`}>
+    <header
+      className={`md:w-full w-screen fixed z-40 ${color ? "bg-white" : ""}`}
+    >
       <div className=" flex py-5 px-5 flex-col  md:flex-row">
         <div className="flex font-semibold items-center text-black">
           <div className="flex px-10 justify-between">
-            <div className="flex pr-8 sm:hidden ">
+            <div className="flex pr-8 sm:hidden " onClick={onClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -95,89 +102,107 @@ export default function Navbar() {
         </div>
         <nav className="md:ml-auto md:mr-auto hidden space-x-8 sm:flex flex-wrap items-center text-base justify-center">
           <Menubar>
-            <MenubarMenu>
-              <MenubarTrigger>Home</MenubarTrigger>
-            </MenubarMenu>
-            <MenubarMenu>
-              <MenubarTrigger>About</MenubarTrigger>
-            </MenubarMenu>
-            <MenubarMenu>
-              <MenubarTrigger>Shop</MenubarTrigger>
-              <MenubarContent className="bg-white">
-                <MenubarCheckboxItem>Shop Grid</MenubarCheckboxItem>
-                <MenubarCheckboxItem>Shop List</MenubarCheckboxItem>
-                <MenubarSeparator />
-                <MenubarCheckboxItem>Shop Single</MenubarCheckboxItem>
-                <MenubarCheckboxItem>Page</MenubarCheckboxItem>
-                {/* <MenubarItem>
+            <a href="/">
+              <MenubarMenu>
+                <MenubarTrigger>Home</MenubarTrigger>
+              </MenubarMenu>
+            </a>
+            <a href="#">
+              <MenubarMenu>
+                <MenubarTrigger>About</MenubarTrigger>
+              </MenubarMenu>
+            </a>
+            <a href="#">
+              <MenubarMenu>
+                <MenubarTrigger>Shop</MenubarTrigger>
+                <MenubarContent className="bg-white">
+                  <MenubarCheckboxItem>Shop Grid</MenubarCheckboxItem>
+                  <MenubarCheckboxItem>Shop List</MenubarCheckboxItem>
+                  <MenubarSeparator />
+                  <MenubarCheckboxItem>Shop Single</MenubarCheckboxItem>
+                  <MenubarCheckboxItem>Page</MenubarCheckboxItem>
+                  {/* <MenubarItem>
                   Page
                 </MenubarItem> */}
-                {/* <MenubarSeparator />
+                  {/* <MenubarSeparator />
                 <MenubarItem inset>Toggle Fullscreen</MenubarItem>
                 <MenubarSeparator />
                 <MenubarItem inset>Hide Sidebar</MenubarItem> */}
-              </MenubarContent>
-            </MenubarMenu>
-            <MenubarMenu>
-              <MenubarTrigger>Pages</MenubarTrigger>
-              <MenubarContent className="bg-white">
-                <MenubarRadioGroup>
-                  <MenubarRadioItem value="about us">About Us</MenubarRadioItem>
-                  <MenubarRadioItem value="cart">Cart</MenubarRadioItem>
-                  <MenubarRadioItem value="compare">Compare</MenubarRadioItem>
-                  <MenubarRadioItem value="whistle">Whistle</MenubarRadioItem>
-                  <MenubarRadioItem value="empty cart">
-                    Empty Cart
-                  </MenubarRadioItem>
-                  <MenubarRadioItem value="checkout">Checkout</MenubarRadioItem>
-                  <MenubarRadioItem value="my account">
-                    My Account
-                  </MenubarRadioItem>
-                  <MenubarRadioItem value="login">Login</MenubarRadioItem>
-                  <MenubarRadioItem value="register">Register</MenubarRadioItem>
-                </MenubarRadioGroup>
-                {/* <MenubarSeparator />
+                </MenubarContent>
+              </MenubarMenu>
+            </a>
+            <a href="#">
+              <MenubarMenu>
+                <MenubarTrigger>Pages</MenubarTrigger>
+                <MenubarContent className="bg-white">
+                  <MenubarRadioGroup>
+                    <MenubarRadioItem value="about us">
+                      About Us
+                    </MenubarRadioItem>
+                    <MenubarRadioItem value="cart">Cart</MenubarRadioItem>
+                    <MenubarRadioItem value="compare">Compare</MenubarRadioItem>
+                    <MenubarRadioItem value="whistle">Whistle</MenubarRadioItem>
+                    <MenubarRadioItem value="empty cart">
+                      Empty Cart
+                    </MenubarRadioItem>
+                    <MenubarRadioItem value="checkout">
+                      Checkout
+                    </MenubarRadioItem>
+                    <MenubarRadioItem value="my account">
+                      My Account
+                    </MenubarRadioItem>
+                    <MenubarRadioItem value="login">Login</MenubarRadioItem>
+                    <MenubarRadioItem value="register">
+                      Register
+                    </MenubarRadioItem>
+                  </MenubarRadioGroup>
+                  {/* <MenubarSeparator />
                 <MenubarItem inset>Edit...</MenubarItem>
                 <MenubarSeparator />
                 <MenubarItem inset>Add Profile...</MenubarItem> */}
-              </MenubarContent>
-            </MenubarMenu>
-            <MenubarMenu>
-              <MenubarTrigger>Blog</MenubarTrigger>
-              <MenubarContent className="bg-white">
-                <MenubarRadioGroup>
-                  <MenubarSub>
-                    <MenubarSubTrigger>Blog Grid</MenubarSubTrigger>
-                    <MenubarSubContent className="bg-white">
-                      <MenubarItem>Blog Grid</MenubarItem>
-                      <MenubarItem>Blog Grid Left Sidebar</MenubarItem>
-                      <MenubarItem>Blog Grid Right Sidebar</MenubarItem>
-                    </MenubarSubContent>
-                  </MenubarSub>
-                  <MenubarSub>
-                    <MenubarSubTrigger>Blog List</MenubarSubTrigger>
-                    <MenubarSubContent className="bg-white">
-                      <MenubarItem>Blog List Left Sidebar</MenubarItem>
-                      <MenubarItem>Blog List Right Sidebar</MenubarItem>
-                    </MenubarSubContent>
-                  </MenubarSub>
-                  <MenubarSub>
-                    <MenubarSubTrigger>Blog Details</MenubarSubTrigger>
-                    <MenubarSubContent className="bg-white">
-                      <MenubarItem>Blog Details Left Sidebar</MenubarItem>
-                      <MenubarItem>Blog Details Right Sidebar</MenubarItem>
-                    </MenubarSubContent>
-                  </MenubarSub>
-                </MenubarRadioGroup>
-                {/* <MenubarSeparator />
+                </MenubarContent>
+              </MenubarMenu>
+            </a>
+            <a href="#">
+              <MenubarMenu>
+                <MenubarTrigger>Blog</MenubarTrigger>
+                <MenubarContent className="bg-white">
+                  <MenubarRadioGroup>
+                    <MenubarSub>
+                      <MenubarSubTrigger>Blog Grid</MenubarSubTrigger>
+                      <MenubarSubContent className="bg-white">
+                        <MenubarItem>Blog Grid</MenubarItem>
+                        <MenubarItem>Blog Grid Left Sidebar</MenubarItem>
+                        <MenubarItem>Blog Grid Right Sidebar</MenubarItem>
+                      </MenubarSubContent>
+                    </MenubarSub>
+                    <MenubarSub>
+                      <MenubarSubTrigger>Blog List</MenubarSubTrigger>
+                      <MenubarSubContent className="bg-white">
+                        <MenubarItem>Blog List Left Sidebar</MenubarItem>
+                        <MenubarItem>Blog List Right Sidebar</MenubarItem>
+                      </MenubarSubContent>
+                    </MenubarSub>
+                    <MenubarSub>
+                      <MenubarSubTrigger>Blog Details</MenubarSubTrigger>
+                      <MenubarSubContent className="bg-white">
+                        <MenubarItem>Blog Details Left Sidebar</MenubarItem>
+                        <MenubarItem>Blog Details Right Sidebar</MenubarItem>
+                      </MenubarSubContent>
+                    </MenubarSub>
+                  </MenubarRadioGroup>
+                  {/* <MenubarSeparator />
                 <MenubarItem inset>Edit...</MenubarItem>
                 <MenubarSeparator />
                 <MenubarItem inset>Add Profile...</MenubarItem> */}
-              </MenubarContent>
-            </MenubarMenu>
-            <MenubarMenu>
-              <MenubarTrigger>Contact</MenubarTrigger>
-            </MenubarMenu>
+                </MenubarContent>
+              </MenubarMenu>
+            </a>
+            <a href="#">
+              <MenubarMenu>
+                <MenubarTrigger>Contact</MenubarTrigger>
+              </MenubarMenu>
+            </a>
           </Menubar>
         </nav>
         <div className="flex gap-5">
@@ -238,3 +263,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+export default Navbar;
