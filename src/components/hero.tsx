@@ -26,6 +26,8 @@ export default function Hero() {
               height={1000}
             />
           </div>
+
+          {/* mobile */}
           <div className="flex sm:hidden">
             <div className="max-w-screen-lg m-auto h-[50vh] py-5 my-10 text-center text-xl rounded-2xl">
               <h1 className="text-3xl text-white italic font-bold">
@@ -45,15 +47,17 @@ export default function Hero() {
               </button>
             </div>
           </div>
+
+          {/* desktop */}
           <div className="hidden sm:flex">
             <div className="max-w-screen-lg m-auto h-[70vh] py-5 my-96 text-center text-2xl rounded-2xl">
               <h1 className="text-7xl text-white italic font-bold">
                 Stylish Kitchen Furniture
               </h1>
-              <p className="text-gray-900 font-semibold">
+              <p className="text-black font-semibold">
                 Unique Furniture Style Design for Your Family and Welcome
               </p>
-              <p className="text-gray-900 font-semibold">
+              <p className="text-black font-semibold">
                 Our Shop, 30% Offer All Stylish Kitchen Furniture
               </p>
               <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-yellow-500 bg-yellow-500 text-white">
@@ -66,6 +70,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

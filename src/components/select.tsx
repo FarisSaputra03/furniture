@@ -20,6 +20,8 @@ export default function Select() {
   ];
   return (
     <div>
+
+      {/* mobile */}
       <div className="flex justify-center sm:hidden flex-wrap  text-center">
         {listSelect.map((data: any, index) => (
           <div key={index + 1} className="p-4">
@@ -74,6 +76,8 @@ export default function Select() {
         ))}
       </div>
 
+
+{/* desktop */}
       <div className="container hidden sm:flex px-5 py-10 mx-auto justify-center">
         <div className="grid grid-cols-3 md:grid-cols-1">
           <div className="flex flex-wrap justify-center text-center">

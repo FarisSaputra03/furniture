@@ -79,11 +79,17 @@ const Navbar = (props: Partial<NavbarProps>) => {
             <div className="flex sm:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
+                fill="none"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                stroke-width="1.5"
+                stroke="currentColor"
                 className="w-10 h-10"
               >
-                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                />
               </svg>
             </div>
             <div className="flex sm:hidden">
@@ -106,23 +112,36 @@ const Navbar = (props: Partial<NavbarProps>) => {
           <Menubar>
             <a href="/">
               <MenubarMenu>
-                <MenubarTrigger>Home</MenubarTrigger>
+                <MenubarTrigger className="hover:text-yellow-500">
+                  Home
+                </MenubarTrigger>
               </MenubarMenu>
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger>About</MenubarTrigger>
+                <MenubarTrigger className="hover:text-yellow-500">
+                  About
+                </MenubarTrigger>
               </MenubarMenu>
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger>Shop</MenubarTrigger>
-                <MenubarContent className="bg-white">
-                  <MenubarCheckboxItem>Shop Grid</MenubarCheckboxItem>
-                  <MenubarCheckboxItem>Shop List</MenubarCheckboxItem>
-                  <MenubarSeparator />
-                  <MenubarCheckboxItem>Shop Single</MenubarCheckboxItem>
-                  <MenubarCheckboxItem>Page</MenubarCheckboxItem>
+                <MenubarTrigger className="hover:text-yellow-500">
+                  Shop
+                </MenubarTrigger>
+                <MenubarContent className="bg-white ">
+                  <MenubarCheckboxItem className="hover:text-yellow-500">
+                    Shop Grid
+                  </MenubarCheckboxItem>
+                  <MenubarCheckboxItem className="hover:text-yellow-500">
+                    Shop List
+                  </MenubarCheckboxItem>
+                  <MenubarCheckboxItem className="hover:text-yellow-500">
+                    Shop Single
+                  </MenubarCheckboxItem>
+                  <MenubarCheckboxItem className="hover:text-yellow-500">
+                    Page
+                  </MenubarCheckboxItem>
                   {/* <MenubarItem>
                   Page
                 </MenubarItem> */}
@@ -135,26 +154,63 @@ const Navbar = (props: Partial<NavbarProps>) => {
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger>Pages</MenubarTrigger>
+                <MenubarTrigger className="hover:text-yellow-500">
+                  Pages
+                </MenubarTrigger>
                 <MenubarContent className="bg-white">
                   <MenubarRadioGroup>
-                    <MenubarRadioItem value="about us">
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="about us"
+                    >
                       About Us
                     </MenubarRadioItem>
-                    <MenubarRadioItem value="cart">Cart</MenubarRadioItem>
-                    <MenubarRadioItem value="compare">Compare</MenubarRadioItem>
-                    <MenubarRadioItem value="whistle">Whistle</MenubarRadioItem>
-                    <MenubarRadioItem value="empty cart">
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="cart"
+                    >
+                      Cart
+                    </MenubarRadioItem>
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="compare"
+                    >
+                      Compare
+                    </MenubarRadioItem>
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="whistle"
+                    >
+                      Whistle
+                    </MenubarRadioItem>
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="empty cart"
+                    >
                       Empty Cart
                     </MenubarRadioItem>
-                    <MenubarRadioItem value="checkout">
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="checkout"
+                    >
                       Checkout
                     </MenubarRadioItem>
-                    <MenubarRadioItem value="my account">
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="my account"
+                    >
                       My Account
                     </MenubarRadioItem>
-                    <MenubarRadioItem value="login">Login</MenubarRadioItem>
-                    <MenubarRadioItem value="register">
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="login"
+                    >
+                      Login
+                    </MenubarRadioItem>
+                    <MenubarRadioItem
+                      className="hover:text-yellow-500"
+                      value="register"
+                    >
                       Register
                     </MenubarRadioItem>
                   </MenubarRadioGroup>
@@ -167,28 +223,48 @@ const Navbar = (props: Partial<NavbarProps>) => {
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger>Blog</MenubarTrigger>
+                <MenubarTrigger className="hover:text-yellow-500">
+                  Blog
+                </MenubarTrigger>
                 <MenubarContent className="bg-white">
                   <MenubarRadioGroup>
                     <MenubarSub>
-                      <MenubarSubTrigger>Blog Grid</MenubarSubTrigger>
+                      <MenubarSubTrigger className="hover:text-yellow-500">
+                        Blog Grid
+                      </MenubarSubTrigger>
                       <MenubarSubContent className="bg-white">
-                        <MenubarItem>Blog Grid Left Sidebar</MenubarItem>
-                        <MenubarItem>Blog Grid Right Sidebar</MenubarItem>
+                        <MenubarItem className="hover:text-yellow-500">
+                          Blog Grid Left Sidebar
+                        </MenubarItem>
+                        <MenubarItem className="hover:text-yellow-500">
+                          Blog Grid Right Sidebar
+                        </MenubarItem>
                       </MenubarSubContent>
                     </MenubarSub>
                     <MenubarSub>
-                      <MenubarSubTrigger>Blog List</MenubarSubTrigger>
+                      <MenubarSubTrigger className="hover:text-yellow-500">
+                        Blog List
+                      </MenubarSubTrigger>
                       <MenubarSubContent className="bg-white">
-                        <MenubarItem>Blog List Left Sidebar</MenubarItem>
-                        <MenubarItem>Blog List Right Sidebar</MenubarItem>
+                        <MenubarItem className="hover:text-yellow-500">
+                          Blog List Left Sidebar
+                        </MenubarItem>
+                        <MenubarItem className="hover:text-yellow-500">
+                          Blog List Right Sidebar
+                        </MenubarItem>
                       </MenubarSubContent>
                     </MenubarSub>
                     <MenubarSub>
-                      <MenubarSubTrigger>Blog Details</MenubarSubTrigger>
+                      <MenubarSubTrigger className="hover:text-yellow-500">
+                        Blog Details
+                      </MenubarSubTrigger>
                       <MenubarSubContent className="bg-white">
-                        <MenubarItem>Blog Details Left Sidebar</MenubarItem>
-                        <MenubarItem>Blog Details Right Sidebar</MenubarItem>
+                        <MenubarItem className="hover:text-yellow-500">
+                          Blog Details Left Sidebar
+                        </MenubarItem>
+                        <MenubarItem className="hover:text-yellow-500">
+                          Blog Details Right Sidebar
+                        </MenubarItem>
                       </MenubarSubContent>
                     </MenubarSub>
                   </MenubarRadioGroup>
@@ -201,7 +277,9 @@ const Navbar = (props: Partial<NavbarProps>) => {
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger>Contact</MenubarTrigger>
+                <MenubarTrigger className="hover:text-yellow-500">
+                  Contact
+                </MenubarTrigger>
               </MenubarMenu>
             </a>
           </Menubar>
@@ -238,11 +316,17 @@ const Navbar = (props: Partial<NavbarProps>) => {
           <div className="hidden space-x-8 sm:flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              fill="none"
               viewBox="0 0 24 24"
-              fill="currentColor"
+              stroke-width="1.5"
+              stroke="currentColor"
               className="w-10 h-10"
             >
-              <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              />
             </svg>
           </div>
           <div className="hidden space-x-8 sm:flex">
