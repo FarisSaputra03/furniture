@@ -359,6 +359,8 @@ export default function Detail_Produk() {
       href: "/detail_produk",
     },
   ];
+  
+
 
   const filterProduk = (title: any) => {
     const filtered = listProduct.filter((item) => item.id.toString() === title);
