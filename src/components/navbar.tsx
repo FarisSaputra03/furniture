@@ -117,7 +117,7 @@ const Navbar = (props: Partial<NavbarProps>) => {
                 </MenubarTrigger>
               </MenubarMenu>
             </a>
-            <a href="#">
+            <a href="/about">
               <MenubarMenu>
                 <MenubarTrigger className="hover:text-yellow-500">
                   About
