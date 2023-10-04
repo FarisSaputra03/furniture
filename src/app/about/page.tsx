@@ -2,8 +2,32 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MdOutlineChair } from "react-icons/md";
+import { MdOutlineChair, MdOutlinePayments } from "react-icons/md";
+import { TbTruckDelivery } from "react-icons/tb";
+import { RiCustomerService2Fill } from "react-icons/ri";
 export default function About() {
+  const listSelect = [
+    {
+      icon: "21",
+      desc:"+",
+      title: "Years of Exprience",
+    },
+    {
+      icon: "30",
+      desc:"K",
+      title: "Happy Customers",
+    },
+    {
+      icon: "15",
+      desc:"+",
+      title: "Award Winner",
+    },
+    {
+      icon: "100",
+      desc:"%",
+      title: "Online Support",
+    },
+  ];
   return (
     <div>
       <div className="bg-white p-10"></div>
@@ -125,6 +149,76 @@ export default function About() {
             </div>
           </div>
         </section>
+      }
+      {
+        <section className="text-gray-600 body-font">
+          <div className="container px-5 py-20 mx-auto flex flex-wrap">
+            <div className="">
+              <div className="flex gap-10 justify-center">
+                <div>
+                  <Image
+                    src="/img/image-3.webp"
+                    alt=""
+                    width={600}
+                    height={200}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src="/img/image-4.webp"
+                    alt=""
+                    width={600}
+                    height={200}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      }
+      {
+        <div>
+          {/* mobile */}
+          <div className="flex justify-center sm:hidden flex-wrap  text-center">
+            {listSelect.map((data: any, index) => (
+              <div key={index + 1} className="p-4">
+                <div className="p-4 ">
+                  <div className="border-2 border-yellow-200 px-4 py-6 rounded-lg">
+                    <div className="inline-flex items-center">{data.icon}</div>
+                    <h2 className="title-font font-medium text-sm text-black">
+                      {data.title}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* desktop */}
+          <div className="container hidden sm:flex px-5 py-10 mx-auto justify-center">
+            <div className="grid grid-cols-3 md:grid-cols-1">
+              <div className="flex flex-wrap justify-center text-center">
+                {listSelect.map((data: any, index) => (
+                  <div key={index + 1} className="p-4">
+                    <div className="">
+                      <div className="border-2 border-yellow-200 px-8 py-6 rounded-lg">
+                        <div className="flex justify-center">
+                          <div className="text-5xl text-yellow-400 items-center">
+                            {data.icon}
+                          </div>
+                          <p className="pt-5 text-lg font-bold text-yellow-400">{data.desc}</p>
+                        </div>
+                        <h2 className="title-font font-medium text-gray-400">
+                          {data.title}
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       }
     </div>
   );
