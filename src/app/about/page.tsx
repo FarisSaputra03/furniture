@@ -1,30 +1,34 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useRef, useState } from "react";
 import { MdOutlineChair, MdOutlinePayments } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiCustomerService2Fill } from "react-icons/ri";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 export default function About() {
   const listSelect = [
     {
       icon: "21",
-      desc:"+",
+      desc: "+",
       title: "Years of Exprience",
     },
     {
       icon: "30",
-      desc:"K",
+      desc: "K",
       title: "Happy Customers",
     },
     {
       icon: "15",
-      desc:"+",
+      desc: "+",
       title: "Award Winner",
     },
     {
       icon: "100",
-      desc:"%",
+      desc: "%",
       title: "Online Support",
     },
   ];
@@ -206,7 +210,9 @@ export default function About() {
                           <div className="text-5xl text-yellow-400 items-center">
                             {data.icon}
                           </div>
-                          <p className="pt-5 text-lg font-bold text-yellow-400">{data.desc}</p>
+                          <p className="pt-5 text-lg font-bold text-yellow-400">
+                            {data.desc}
+                          </p>
                         </div>
                         <h2 className="title-font font-medium text-gray-400">
                           {data.title}
@@ -216,6 +222,129 @@ export default function About() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      }
+      {
+        <section className="bg-gray-300 body-font">
+          <div className="container px-5 py-24 mx-auto">
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    className="inline-block w-8 h-8 text-gray-400 mb-8"
+                    viewBox="0 0 975.036 975.036"
+                  >
+                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                  </svg>
+                  <p className="leading-relaxed text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do elusmod tempor incididunt ut labore dolorelo magna
+                    aliqua, Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit.
+                  </p>
+                  <div className="flex justify-center py-5">
+                    <img
+                      className="h-16 w-16 object-cover rounded-full"
+                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+                      alt="Current profile photo"
+                    />
+                  </div>
+                  <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
+                    HOLDEN CAULFIELD
+                  </h2>
+                  <p className="text-gray-500">Senior Product Designer</p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    className="inline-block w-8 h-8 text-gray-400 mb-8"
+                    viewBox="0 0 975.036 975.036"
+                  >
+                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                  </svg>
+                  <p className="leading-relaxed text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do elusmod tempor incididunt ut labore dolorelo magna
+                    aliqua, Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit.
+                  </p>
+                  <div className="flex justify-center py-5">
+                    <img
+                      className="h-16 w-16 object-cover rounded-full"
+                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+                      alt="Current profile photo"
+                    />
+                  </div>
+                  <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
+                    HOLDEN CAULFIELD
+                  </h2>
+                  <p className="text-gray-500">Senior Product Designer</p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    className="inline-block w-8 h-8 text-gray-400 mb-8"
+                    viewBox="0 0 975.036 975.036"
+                  >
+                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                  </svg>
+                  <p className="leading-relaxed text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do elusmod tempor incididunt ut labore dolorelo magna
+                    aliqua, Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit.
+                  </p>
+                  <div className="flex justify-center py-5">
+                    <img
+                      className="h-16 w-16 object-cover rounded-full"
+                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+                      alt="Current profile photo"
+                    />
+                  </div>
+                  <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
+                    HOLDEN CAULFIELD
+                  </h2>
+                  <p className="text-gray-500">Senior Product Designer</p>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </section>
+      }
+      {
+        <div>
+          <div className="container px-5 py-24 mx-auto">
+            <div className="flex flex-col text-center w-full mb-20">
+              <h2 className="text-lg font-medium title-font mb-4 text-gray-400 tracking-widest">
+                {" "}
+                OUR TEAM
+              </h2>
+              <h1 className="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">
+                MEET OUR TEAM
+              </h1>
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+                gentrify, subway tile poke farm-to-table. Franzen you probably
+                havent heard of them.
+              </p>
             </div>
           </div>
         </div>
