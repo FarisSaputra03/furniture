@@ -10,6 +10,37 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 export default function About() {
+  const listIcon = [
+    {
+      img: "/img/brand-1.webp",
+    },
+    {
+      img: "/img/brand-2.webp",
+    },
+    {
+      img: "/img/brand-3.webp",
+    },
+    {
+      img: "/img/brand-4.webp",
+    },
+    {
+      img: "/img/brand-5.webp",
+    },
+  ];
+  const listTeam = [
+    {
+      img: "/img/team-1.webp",
+      name: "MAKIYAH YEAGER",
+    },
+    {
+      img: "/img/team-2.webp",
+      name: "TAELYNN THORPE",
+    },
+    {
+      img: "/img/team-3.webp",
+      name: "SARA KOIVISTO",
+    },
+  ];
   const listSelect = [
     {
       icon: "21",
@@ -337,16 +368,53 @@ export default function About() {
                 {" "}
                 OUR TEAM
               </h2>
-              <h1 className="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">
+              <h1 className="text-4xl font-medium title-font mb-4 text-gray-900 tracking-widest">
                 MEET OUR TEAM
               </h1>
-              <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-                gentrify, subway tile poke farm-to-table. Franzen you probably
-                havent heard of them.
-              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {listTeam.map((data: any, index) => (
+                <div key={index + 1} className="flex justify-center">
+                  <div className="p-2">
+                    <Image
+                      className="hover:scale-105 transition duration-500 cursor-pointer object-cover"
+                      height={500}
+                      width={400}
+                      src={data.img}
+                      alt="team"
+                    />
+                    <div className="flex justify-center pt-8">
+                      <h2 className="text-black font-semibold text-xl">
+                        {data.name}
+                      </h2>
+                    </div>
+                    <div className="flex justify-center py-3">
+                      <p className="text-gray-500 font-semibold text-lg">
+                        CUSTOMER
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      }
+      {
+        <div>
+          <section className="text-gray-600 body-font">
+            <div className="grid grid-cols-2 md:grid-cols-5 py-5">
+              {listIcon.map((data: any, index) => (
+                <div key={index + 1} className="w-full gap-5 p-3">
+                  <div className="p-8 w-full">
+                    <div className=" px-4 py-6 rounded-lg">
+                      <Image width={300} height={118} src={data.img} alt="" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       }
     </div>

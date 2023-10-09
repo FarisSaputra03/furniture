@@ -362,7 +362,7 @@ export default function Produk() {
   }, []);
   return (
     <div className="">
-      <div className="flex  flex-wrap w-full mb-20 flex-col items-center text-center">
+      <div className="flex mt-8 flex-wrap w-full flex-col items-center text-center">
         <h1 className="sm:text-3xl text-2xl italic font-bold title-font mb-2 text-gray-900">
           New Product
         </h1>
@@ -471,7 +471,7 @@ export default function Produk() {
       </div>
 
       <div>
-        <section className="container  px-5 py-24 mx-auto">
+        <section className="container px-5 py-10 mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {listFiltered.map((data: any, index) => (
                 <div key={index + 1} className="">
