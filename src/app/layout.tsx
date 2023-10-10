@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 import { useState } from "react";
+import { Link } from "lucide-react";
+import Footer1 from "@/components/footer1";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -51,19 +53,15 @@ export default function RootLayout({
           </div>
           <div className="py-2 px-5">
             <div className="py-2 px-5 font-semibold">Home</div>
-            <p className="py-2 px-5 font-semibold">About</p>
-            <select
-              className="py-2 px-5 font-semibold"
-            >
+              <p className="py-2 px-5 font-semibold">About</p>
+            <select className="py-2 px-5 font-semibold">
               <option selected>Shop</option>
               <option value="SG">Shop Grid</option>
               <option value="JL">Shop List</option>
               <option value="SS">Shop Single</option>
               <option value="Pe">Page</option>
             </select>
-            <select
-              className="py-2 px-5 font-semibold"
-            >
+            <select className="py-2 px-5 font-semibold">
               <option selected>Pages</option>
               <option value="AU">About Us</option>
               <option value="Ct">Cart</option>
@@ -75,9 +73,7 @@ export default function RootLayout({
               <option value="Ln">Login</option>
               <option value="Rr">Register</option>
             </select>
-            <select
-              className="py-2 px-5 font-semibold"
-            >
+            <select className="py-2 px-5 font-semibold">
               <option selected>Blog</option>
               <option value="BG">Blog Grid</option>
               <option value="Ct">Blog List</option>
@@ -88,6 +84,7 @@ export default function RootLayout({
         </div>
         <Navbar onClick={() => setShowMenu(true)} />
         {children}
+        <Footer1 />
         <Footer />
       </body>
     </html>

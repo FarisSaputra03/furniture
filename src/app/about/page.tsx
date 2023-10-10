@@ -66,6 +66,17 @@ export default function About() {
   return (
     <div>
       <div className="bg-white p-10"></div>
+      <div className="flex sm:hidden">
+        <div className="flex justify-center p-2 flex-grow w-full">
+          <input
+            type="text"
+            id="text"
+            name="text"
+            className="w-80 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            placeholder="Enter your search key..."
+          />
+        </div>
+      </div>
       {
         <div className="flex flex-col items-center justify-between">
           <div className="relative w-full">
@@ -147,12 +158,15 @@ export default function About() {
       }
       {
         <section className="text-gray-600 body-font">
-          <div className="container px-5 py-24 mx-auto">
+          <div className="container px-5 py-20 mx-auto">
             <div className=" w-full mx-auto text-center">
               <h2 className="text-sm title-font text-gray-500 font-semibold">
                 OUR HISTORY
               </h2>
-              <h1 className="text-black italic py-4 text-5xl font-semibold">
+              <h1 className="text-black justify-center italic flex sm:hidden py-4 text-2xl font-semibold">
+                FURBAR FURNITURE SHOP
+              </h1>
+              <h1 className="text-black hidden justify-center sm:flex italic py-4 text-5xl font-semibold">
                 FURBAR FURNITURE SHOP
               </h1>
               <p className="leading-relaxed text-lg">
@@ -176,7 +190,10 @@ export default function About() {
               </p>
               <div className="flex justify-center pt-8">
                 <span className="inline-block h-1 w-full rounded bg-yellow-400 mt-16 "></span>
-                <div className="text-yellow-500 flex">
+                <div className="text-yellow-500 pt-5 flex sm:hidden">
+                  <MdOutlineChair size="5em" />
+                </div>
+                <div className="text-yellow-500 sm:flex hidden">
                   <MdOutlineChair size="8em" />
                 </div>
                 <span className="inline-block h-1 w-full rounded bg-yellow-400 mt-16"></span>
@@ -187,9 +204,9 @@ export default function About() {
       }
       {
         <section className="text-gray-600 body-font">
-          <div className="container px-5 py-20 mx-auto flex flex-wrap">
-            <div className="">
-              <div className="flex gap-10 justify-center">
+          <div className="container px-5 py-10 mx-auto flex flex-wrap">
+            <div className="flex  justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
                   <Image
                     src="/img/image-3.webp"
@@ -213,39 +230,50 @@ export default function About() {
       }
       {
         <div>
-          {/* mobile */}
-          <div className="flex justify-center sm:hidden flex-wrap  text-center">
-            {listSelect.map((data: any, index) => (
-              <div key={index + 1} className="p-4">
-                <div className="p-4 ">
-                  <div className="border-2 border-yellow-200 px-4 py-6 rounded-lg">
-                    <div className="inline-flex items-center">{data.icon}</div>
-                    <h2 className="title-font font-medium text-sm text-black">
-                      {data.title}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* desktop */}
-          <div className="container hidden sm:flex px-5 py-10 mx-auto justify-center">
-            <div className="grid grid-cols-3 md:grid-cols-1">
-              <div className="flex flex-wrap justify-center text-center">
+          {/* {/* mobile */}
+          <div className=" px-5 py-10 mx-auto sm:hidden flex  justify-center">
+            <div className="flex flex-wrap justify-center text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4">
                 {listSelect.map((data: any, index) => (
                   <div key={index + 1} className="p-4">
                     <div className="">
                       <div className="border-2 border-yellow-200 px-8 py-6 rounded-lg">
                         <div className="flex justify-center">
-                          <div className="text-5xl text-yellow-400 items-center">
+                          <div className="text-5xl font-extrabold text-yellow-400 items-center">
                             {data.icon}
                           </div>
                           <p className="pt-5 text-lg font-bold text-yellow-400">
                             {data.desc}
                           </p>
                         </div>
-                        <h2 className="title-font font-medium text-gray-400">
+                        <h2 className=" text-xs font-medium text-gray-400">
+                          {data.title}
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* desktop */}
+          <div className=" px-5 py-10 hidden sm:flex mx-auto justify-center">
+            <div className="flex flex-wrap justify-center text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4">
+                {listSelect.map((data: any, index) => (
+                  <div key={index + 1} className="p-4">
+                    <div className="">
+                      <div className="border-2 border-yellow-200 px-8 py-6 rounded-lg">
+                        <div className="flex justify-center">
+                          <div className="text-5xl font-extrabold text-yellow-400 items-center">
+                            {data.icon}
+                          </div>
+                          <p className="pt-5 text-lg font-bold text-yellow-400">
+                            {data.desc}
+                          </p>
+                        </div>
+                        <h2 className=" text-xs font-medium text-gray-400">
                           {data.title}
                         </h2>
                       </div>
