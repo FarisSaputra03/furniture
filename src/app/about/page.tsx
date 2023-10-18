@@ -98,7 +98,7 @@ export default function About() {
                 </h1>
                 <div className="flex gap-3 text-base">
                   <Link href="/">
-                    <p className="text-gray-900 font-semibold hover:text-yellow-500">
+                    <p className="text-gray-900 font-semibold hover:text-yellow-500 ">
                       Home
                     </p>
                   </Link>
@@ -130,7 +130,7 @@ export default function About() {
                 </h1>
                 <div className="flex gap-3 pt-5 text-base">
                   <Link href="/">
-                    <p className="text-gray-900 font-semibold hover:text-yellow-500">
+                    <p className="text-gray-900 font-semibold hover:text-yellow-500 hover:scale-125 transition duration-500 cursor-pointer">
                       Home
                     </p>
                   </Link>

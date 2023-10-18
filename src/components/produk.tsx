@@ -377,11 +377,9 @@ export default function Produk() {
             onClick={() => {
               setSelectedTitle("All");
               filterProduk("All");
-              // setBakpiaKukus(false);
-              // setBoluKukus(false);
             }}
             type="button"
-            className={`font-bold py-2 rounded-full items-center gap-2 text-xs  ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs hover:scale-125 transition duration-500 cursor-pointer  ${
               selectedTitle == "All"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -397,11 +395,9 @@ export default function Produk() {
             onClick={() => {
               setSelectedTitle("Just Now");
               filterProduk("Just Now");
-              // setBoluKukus(true);
-              // setBakpiaKukus(true);
             }}
             type="button"
-            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "Just Now"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -419,7 +415,7 @@ export default function Produk() {
               filterProduk("New Arrival");
             }}
             type="button"
-            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "New Arrival"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -437,7 +433,7 @@ export default function Produk() {
               filterProduk("Top Seals");
             }}
             type="button"
-            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "Top Seals"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -455,7 +451,7 @@ export default function Produk() {
               filterProduk("Best Rating");
             }}
             type="button"
-            className={`font-bold py-2 rounded-full items-center gap-2 text-xs ${
+            className={`font-bold py-2 rounded-full items-center gap-2 text-xs hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "Best Rating"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -474,9 +470,9 @@ export default function Produk() {
         <section className="container px-5 py-10 mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {listFiltered.map((data: any, index) => (
-                <div key={index + 1} className="">
-                  <Link href={`/detail_produk/${data.id}`}>
-                  <div className=" w-full rounded bg-gray-100">
+              <div key={index + 1} className="">
+                <Link href={`/detail_produk/${data.id}`}>
+                  <div className=" w-full rounded bg-gray-100 hover:scale-110 transition duration-500 cursor-pointer object-cover">
                     <div className=" relative group rounded overflow-hidden">
                       <Image width={420} height={260} src={data.img} alt="" />
                       <div className="opacity-0 gap-1 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center items-end text-xl  text-black font-semibold">
@@ -537,8 +533,8 @@ export default function Produk() {
                       </div>
                     </div>
                   </div>
-                  </Link>
-                </div>
+                </Link>
+              </div>
             ))}
           </div>
         </section>

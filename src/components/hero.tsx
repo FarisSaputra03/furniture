@@ -39,12 +39,14 @@ export default function Hero() {
               <p className="text-gray-900 text-xs font-semibold">
                 Our Shop, 30% Offer All Stylish Kitchen Furniture
               </p>
-              <button className="rounded-lg px-3.5 py-1 m-1 overflow-hidden relative group cursor-pointer font-medium border-yellow-500 bg-yellow-500 text-white">
-                <span className="absolute w-64 h-0 text-white transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <span className=" text-base text-white italic transition duration-300 ease">
-                  Purchase Now
-                </span>
-              </button>
+              <div className="animate-bounce animate-infinite animate-ease-linear pt-5">
+                <button className="rounded-lg px-3.5 py-1 m-1 overflow-hidden relative group cursor-pointer font-medium border-yellow-500 bg-yellow-500 text-white">
+                  <span className="absolute w-64 h-0 text-white transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className=" text-base text-white italic transition duration-300 ease">
+                    Purchase Now
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -60,17 +62,18 @@ export default function Hero() {
               <p className="text-black font-semibold">
                 Our Shop, 30% Offer All Stylish Kitchen Furniture
               </p>
-              <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-yellow-500 bg-yellow-500 text-white">
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
-                  Purchase Now
-                </span>
-              </button>
+              <div className="animate-bounce animate-infinite animate-ease-linear pt-5">
+                <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-yellow-500 bg-yellow-500 text-white">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
+                    Purchase Now
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

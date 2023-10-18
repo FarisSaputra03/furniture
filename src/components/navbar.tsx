@@ -38,7 +38,7 @@ const Navbar = (props: Partial<NavbarProps>) => {
   });
   return (
     <header
-      className={`md:w-full w-screen fixed z-40 ${color ? "bg-white" : ""}`}
+      className={`md:w-full w-screen fixed z-50 ${color ? "bg-white" : ""}`}
     >
       <div className=" flex py-5 px-5 flex-col  md:flex-row">
         <div className="flex font-semibold items-center text-black">
@@ -112,21 +112,21 @@ const Navbar = (props: Partial<NavbarProps>) => {
           <Menubar>
             <a href="/">
               <MenubarMenu>
-                <MenubarTrigger className="hover:text-yellow-500">
+                <MenubarTrigger className="hover:text-yellow-500 hover:scale-125 transition duration-500 cursor-pointer">
                   Home
                 </MenubarTrigger>
               </MenubarMenu>
             </a>
             <a href="/about">
               <MenubarMenu>
-                <MenubarTrigger className="hover:text-yellow-500">
+                <MenubarTrigger className="hover:text-yellow-500 hover:scale-125 transition duration-500 cursor-pointer">
                   About
                 </MenubarTrigger>
               </MenubarMenu>
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger className="hover:text-yellow-500">
+                <MenubarTrigger className="hover:text-yellow-500 hover:scale-125 transition duration-500 cursor-pointer">
                   Shop
                 </MenubarTrigger>
                 <MenubarContent className="bg-white ">
@@ -142,19 +142,12 @@ const Navbar = (props: Partial<NavbarProps>) => {
                   <MenubarCheckboxItem className="hover:text-yellow-500">
                     Page
                   </MenubarCheckboxItem>
-                  {/* <MenubarItem>
-                  Page
-                </MenubarItem> */}
-                  {/* <MenubarSeparator />
-                <MenubarItem inset>Toggle Fullscreen</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem inset>Hide Sidebar</MenubarItem> */}
                 </MenubarContent>
               </MenubarMenu>
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger className="hover:text-yellow-500">
+                <MenubarTrigger className="hover:text-yellow-500 hover:scale-125 transition duration-500 cursor-pointer">
                   Pages
                 </MenubarTrigger>
                 <MenubarContent className="bg-white">
@@ -223,7 +216,7 @@ const Navbar = (props: Partial<NavbarProps>) => {
             </a>
             <a href="#">
               <MenubarMenu>
-                <MenubarTrigger className="hover:text-yellow-500">
+                <MenubarTrigger className="hover:text-yellow-500 hover:scale-125 transition duration-500 cursor-pointer">
                   Blog
                 </MenubarTrigger>
                 <MenubarContent className="bg-white">
@@ -268,10 +261,6 @@ const Navbar = (props: Partial<NavbarProps>) => {
                       </MenubarSubContent>
                     </MenubarSub>
                   </MenubarRadioGroup>
-                  {/* <MenubarSeparator />
-                <MenubarItem inset>Edit...</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem inset>Add Profile...</MenubarItem> */}
                 </MenubarContent>
               </MenubarMenu>
             </a>

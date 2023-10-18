@@ -112,7 +112,7 @@ export default function Sale() {
               // setBoluKukus(false);
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm  ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "All Time"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -132,7 +132,7 @@ export default function Sale() {
               // setBakpiaKukus(true);
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "This Year"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"
@@ -150,7 +150,7 @@ export default function Sale() {
               filterProduk("This Month");
             }}
             type="button"
-            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm ${
+            className={`font-bold px-3 py-2 rounded-full items-center gap-2 text-sm hover:scale-125 transition duration-500 cursor-pointer ${
               selectedTitle == "This Month"
                 ? "bg-white text-yellow-500"
                 : "bg-white text-gray-500 hover:text-yellow-500"

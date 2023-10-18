@@ -3,13 +3,12 @@ import Image from "next/image";
 export default function Best() {
   return (
     <div className="p-10 ">
-
       {/* mobile */}
       <div className="relative sm:hidden flex w-full">
         <div className="flex justify-center flex-col gap-8">
           <div>
-            <Image src="/img/kichen.webp" alt="" width={600} height={360} />
-            <div className="absolute bottom-5 z-10 right-15 left-15 pb-44 pl-5 ">
+            <Image className="hover:scale-110 transition duration-500 cursor-pointer object-cover" src="/img/kichen.webp" alt="" width={600} height={360} />
+            <div className="absolute bottom-5 z-10 right-15 left-15 pb-[179px] pl-5 ">
               <p className="italic text-lg font-semibold">High-Quality</p>
               <p className=" text-lg font-semibold text-yellow-500">
                 New Kitchen
@@ -26,8 +25,8 @@ export default function Best() {
             </div>
           </div>
           <div>
-            <Image src="/img/bedroom.webp" alt="" width={600} height={360} />
-            <div className="absolute bottom-5 z-10 right-21 left-21  pl-5">
+            <Image className="hover:scale-110 transition duration-500 cursor-pointer object-cover" src="/img/bedroom.webp" alt="" width={600} height={360} />
+            <div className="absolute bottom-2 z-10 right-21 left-21 pl-5">
               <p className="italic text-lg font-semibold">High-Quality</p>
               <p className="font-semibold text-yellow-500 text-lg">Bed Room</p>
               <p className="font-semibold text-yellow-500 text-lg">Furniture</p>
@@ -44,12 +43,18 @@ export default function Best() {
         </div>
       </div>
 
-{/* desktop */}
+      {/* desktop */}
       <div className="relative hidden space-x-8 sm:flex w-full">
         <div className="flex justify-center gap-8">
           <div>
-            <Image src="/img/kichen.webp" alt="" width={600} height={360} />
-            <div className="absolute bottom-5 z-10 right-15 left-24 pb-8 ">
+            <Image
+              className="hover:scale-110 transition duration-500 cursor-pointer object-cover"
+              src="/img/kichen.webp"
+              alt=""
+              width={600}
+              height={360}
+            />
+            <div className="absolute bottom-5 z-10 right-15 left-[70px] pb-8 ">
               <p className="italic text-lg font-semibold">High-Quality</p>
               <p className=" text-5xl font-semibold text-yellow-500">
                 New Kitchen
@@ -68,7 +73,7 @@ export default function Best() {
             </div>
           </div>
           <div>
-            <Image src="/img/bedroom.webp" alt="" width={600} height={360} />
+            <Image className="hover:scale-110 transition duration-500 cursor-pointer object-cover" src="/img/bedroom.webp" alt="" width={600} height={360} />
             <div className="absolute bottom-5 z-10 right-21 left-21 pb-8 pl-10">
               <p className="italic text-lg font-semibold">High-Quality</p>
               <p className="font-semibold text-yellow-500 text-5xl">Bed Room</p>
