@@ -38,7 +38,7 @@ const Navbar = (props: Partial<NavbarProps>) => {
   });
   return (
     <header
-      className={`md:w-full w-screen fixed z-50 ${color ? "bg-white" : ""}`}
+      className={`md:w-full w-screen fixed z-20 ${color ? "bg-white" : ""}`}
     >
       <div className=" flex py-5 px-5 flex-col  md:flex-row">
         <div className="flex font-semibold items-center text-black">

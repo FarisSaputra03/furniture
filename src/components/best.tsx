@@ -62,8 +62,8 @@ export default function Best() {
               <p className="text-5xl font-semibold text-yellow-500">
                 Furniture
               </p>
-              <div className="pt-5">
-                <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer  font-medium border-yellow-500 bg-yellow-500 text-white">
+              <div className="animate-fade-down animate-infinite animate-duration-[1500ms] animate-delay-[1500ms] pt-5">
+                <button className=" rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer  font-medium border-yellow-500 bg-yellow-500 text-white">
                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                   <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
                     Shop Now
@@ -80,7 +80,7 @@ export default function Best() {
               <p className="font-semibold text-yellow-500 text-5xl">
                 Furniture
               </p>
-              <div className="pt-5">
+              <div className="animate-fade-down animate-infinite animate-duration-[1500ms] animate-delay-[1500ms] pt-5">
                 <button className="rounded-lg px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer  font-medium border-yellow-500 bg-yellow-500 text-white">
                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-gray-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                   <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
