@@ -54,31 +54,9 @@ export default function RootLayout({
           <div className="py-2 px-5">
             <div className="py-2 px-5 font-semibold">Home</div>
               <p className="py-2 px-5 font-semibold">About</p>
-            <select className="py-2 px-5 font-semibold">
-              <option selected>Shop</option>
-              <option value="SG">Shop Grid</option>
-              <option value="JL">Shop List</option>
-              <option value="SS">Shop Single</option>
-              <option value="Pe">Page</option>
-            </select>
-            <select className="py-2 px-5 font-semibold">
-              <option selected>Pages</option>
-              <option value="AU">About Us</option>
-              <option value="Ct">Cart</option>
-              <option value="Ce">Compare</option>
-              <option value="We">Whistle</option>
-              <option value="EC">Empty Cart</option>
-              <option value="Ct">Checkout</option>
-              <option value="MA">My Account</option>
-              <option value="Ln">Login</option>
-              <option value="Rr">Register</option>
-            </select>
-            <select className="py-2 px-5 font-semibold">
-              <option selected>Blog</option>
-              <option value="BG">Blog Grid</option>
-              <option value="Ct">Blog List</option>
-              <option value="Ce">Blog Details</option>
-            </select>
+              <p className="py-2 px-5 font-semibold">Shop</p>
+              <p className="py-2 px-5 font-semibold">Pages</p>
+              <p className="py-2 px-5 font-semibold">Blog</p>
             <p className="py-2 px-5 font-semibold">Contact</p>
           </div>
         </div>
