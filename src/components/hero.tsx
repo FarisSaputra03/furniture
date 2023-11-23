@@ -4,17 +4,6 @@ export default function Hero() {
   return (
     <div>
       <div className="bg-white p-10"></div>
-      <div className="flex sm:hidden">
-        <div className="flex justify-center p-2 flex-grow w-full">
-          <input
-            type="text"
-            id="text"
-            name="text"
-            className="w-80 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            placeholder="Enter your search key..."
-          />
-        </div>
-      </div>
       <div className="flex flex-col items-center justify-between">
         <div className="relative w-full">
           <div className="absolute -z-10 w-full">

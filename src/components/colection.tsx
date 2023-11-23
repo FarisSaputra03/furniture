@@ -1,8 +1,37 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 export default function Colection() {
+  const targetDate = new Date('2024-12-31T23:59:59');
+
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const difference = targetDate .getTime() - now .getTime();
+
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    return { days, hours, minutes, seconds };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
   return (
-    <section className="p-5 ">
+    <div className="p-5 ">
       <div className="flex px-5 py-10 md:flex-row flex-col items-center">
         <div className="md:w-1/2 lg:pr-24 flex flex-col md:items-start">
           <div className="flex gap-2">
@@ -34,7 +63,7 @@ export default function Colection() {
                 <div className="text-6xl text-center flex w-full items-center justify-center">
                   <div className=" mx-1 p-2 text-black rounded-lg">
                     <div className="font-mono leading-none" x-text="days">
-                      0
+                    {timeLeft.days}
                     </div>
                     <div className="font-mono uppercase text-sm leading-none">
                       Days
@@ -45,7 +74,7 @@ export default function Colection() {
                   </div>
                   <div className=" mx-1 p-2 text-black rounded-lg">
                     <div className="font-mono leading-none" x-text="hours">
-                      00
+                    {timeLeft.hours}
                     </div>
                     <div className="font-mono uppercase text-sm leading-none">
                       Hours
@@ -56,7 +85,7 @@ export default function Colection() {
                   </div>
                   <div className=" mx-1 p-2 text-black rounded-lg">
                     <div className="font-mono leading-none" x-text="minutes">
-                      00
+                    {timeLeft.minutes}
                     </div>
                     <div className="font-mono uppercase text-sm leading-none">
                       Minutes
@@ -67,7 +96,7 @@ export default function Colection() {
                   </div>
                   <div className=" mx-1 p-2  text-black rounded-lg">
                     <div className="font-mono leading-none" x-text="seconds">
-                      00
+                    {timeLeft.seconds}
                     </div>
                     <div className="font-mono uppercase text-sm leading-none">
                       Seconds
@@ -90,6 +119,6 @@ export default function Colection() {
           <Image width={720} height={600} src="/img/new5.webp" alt="" />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
