@@ -2,35 +2,21 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 export default function Colection() {
-  const targetDate = new Date("2024-12-31T23:59:59");
-
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const difference = targetDate.getTime() - now.getTime();
-
-    if (difference <= 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    return { days, hours, minutes, seconds };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const countdownDate = new Date("2024-12-31T23:59:59").getTime();
+  const [count, setCount] = useState(countdownDate);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+    const timer = setInterval(() => {
+      setCount(countdownDate - Date.now());
     }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+    return () => clearInterval(timer);
+  }, [count]);
+
+  const days = Math.floor(count / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((count % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((count % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((count % (1000 * 60)) / 1000);
 
   return (
     <div className="p-5 ">
@@ -57,25 +43,25 @@ export default function Colection() {
           </div>
           <div className="text-5xl text-center flex w-full items-center justify-start">
             <div className=" mx-1 p-2 text-black rounded-lg">
-              <h1 className="font-mono leading-none">{timeLeft.days}</h1>
-              <p className="font-mono uppercase text-sm leading-none">Days</p>
+              <h1 className="font-mono leading-none">{days}</h1>
+              <p className="font-mono uppercase text-base leading-none">Days</p>
             </div>
-            <p className="text-2xl mx-1 text-black font-extrabold">:</p>
+            <p className="text-2xl pb-3 text-black font-extrabold">:</p>
             <div className=" mx-1 p-2 text-black rounded-lg">
-              <h1 className="font-mono leading-none">{timeLeft.hours}</h1>
-              <p className="font-mono uppercase text-sm leading-none">Hours</p>
+              <h1 className="font-mono leading-none">{hours}</h1>
+              <p className="font-mono uppercase text-base leading-none">Hours</p>
             </div>
-            <p className="text-2xl mx-1 text-black font-extrabold">:</p>
+            <p className="text-2xl pb-3 text-black font-extrabold">:</p>
             <div className=" mx-1 p-2 text-black rounded-lg">
-              <h1 className="font-mono leading-none">{timeLeft.minutes}</h1>
-              <p className="font-mono uppercase text-sm leading-none">
+              <h1 className="font-mono leading-none">{minutes}</h1>
+              <p className="font-mono uppercase text-base leading-none">
                 Minutes
               </p>
             </div>
-            <p className="text-2xl mx-1 text-black font-extrabold">:</p>
+            <p className="text-2xl pb-3 text-black font-extrabold">:</p>
             <div className=" mx-1 p-2  text-black rounded-lg">
-              <h1 className="font-mono leading-none">{timeLeft.seconds}</h1>
-              <p className="font-mono uppercase text-sm leading-none">
+              <h1 className="font-mono leading-none">{seconds}</h1>
+              <p className="font-mono uppercase text-base leading-none">
                 Seconds
               </p>
             </div>

@@ -8,7 +8,7 @@ export default function Best() {
         <div className="flex justify-center flex-col gap-8">
           <div>
             <Image className="hover:scale-110 transition duration-500 cursor-pointer object-cover" src="/img/kichen.webp" alt="" width={600} height={360} />
-            <div className="absolute bottom-5 z-10 right-15 left-15 pb-[179px] pl-5 ">
+            <div className="absolute bottom-0 z-10 right-15 left-15 pb-[220px] pl-5 ">
               <p className="italic text-lg font-semibold">High-Quality</p>
               <p className=" text-lg font-semibold text-yellow-500">
                 New Kitchen
