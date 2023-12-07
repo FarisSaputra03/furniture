@@ -87,7 +87,7 @@ const Navbar = () => {
                   </svg>
                 </button>
                 <div
-                  className={`fixed top-0 left-0 z-50 h-full bg-white shadow-lg ${sidebarClasses}`}
+                  className={`fixed top-0 left-0 z-50 h-full bg-white shadow-2xl ${sidebarClasses}`}
                 >
                   <button
                     className="absolute top-0 right-0 mt-2 mr-2 text-xl text-black font-bold py-2 px-2 rounded"
@@ -95,7 +95,7 @@ const Navbar = () => {
                   >
                     X
                   </button>
-                  <div className="w-[200px]">
+                  <div className="w-[250px]">
                     <div className="flex p-5">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +205,7 @@ const Navbar = () => {
                             </svg>
                           </div>
                           {isPages && (
-                            <ul className="dropdown-menu border-2 absolute w-[130px] bg-white shadow-2xl mt-1">
+                            <ul className="dropdown-menu border-2 z-50 absolute w-[130px] bg-white shadow-2xl mt-1">
                               <li>
                                 <a className="dropdown-item" href="#">
                                   Shop Grid
@@ -257,7 +257,7 @@ const Navbar = () => {
                             </svg>
                           </div>
                           {isBlog && (
-                            <ul className="dropdown-menu border-2 absolute w-[130px] bg-white shadow-2xl mt-1">
+                            <ul className="dropdown-menu border-2 z-50 absolute w-[130px] bg-white shadow-2xl mt-1">
                               <li>
                                 <a className="dropdown-item" href="#">
                                   Blog Grid
