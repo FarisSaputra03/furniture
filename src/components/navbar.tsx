@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
+import "../styles/dropdown.css";
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -17,12 +19,14 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-interface NavbarProps {
-  onClick: () => void;
-}
-const Navbar = (props: Partial<NavbarProps>) => {
-  const { onClick = () => {} } = props;
+
+const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
+const Navbar = () => {
   const [color, setColor] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isBuka, setIsBuka] = useState(false);
+  const [isPages, setIsPages] = useState(false);
+  const [isBlog, setIsBlog] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 90) {
       setColor(true);
@@ -36,6 +40,27 @@ const Navbar = (props: Partial<NavbarProps>) => {
       window.addEventListener("scroll", changeColor);
     }
   });
+
+  const toggle = () => {
+    setIsBuka(!isBuka);
+  };
+
+  const toggle2 = () => {
+    setIsPages(!isPages);
+  };
+
+  const toggle3 = () => {
+    setIsBlog(!isBlog);
+  };
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const sidebarClasses = isOpen
+    ? "translate-x-0 ease-out transition-medium"
+    : "-translate-x-full ease-in transition-medium";
+
   return (
     <header
       className={`md:w-full w-screen fixed z-20 ${color ? "bg-white" : ""}`}
@@ -43,21 +68,224 @@ const Navbar = (props: Partial<NavbarProps>) => {
       <div className=" flex py-5 px-5 flex-col  md:flex-row">
         <div className="flex font-semibold items-center text-black">
           <div className="flex justify-between">
-            <div className="flex sm:hidden " onClick={onClick}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
+            <div className="flex sm:hidden ">
+              <div>
+                <button onClick={() => setIsOpen(!isOpen)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-8 h-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className={`fixed top-0 left-0 z-50 h-full bg-white shadow-lg ${sidebarClasses}`}
+                >
+                  <button
+                    className="absolute top-0 right-0 mt-2 mr-2 text-xl text-black font-bold py-2 px-2 rounded"
+                    onClick={handleToggle}
+                  >
+                    X
+                  </button>
+                  <div className="w-[200px]">
+                    <div className="flex p-5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="w-8 h-8"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span className="pt-1 text-base">Furniture</span>
+                    </div>
+                    <div className="space-y-4 flex flex-col p-5">
+                      <div>
+                        <button>
+                          <Link href="/">
+                            <p className="text-black"> Home</p>
+                          </Link>
+                        </button>
+                      </div>
+                      <div>
+                        <button>
+                          <Link href={"/about"}>
+                            <p className="text-black"> About</p>
+                          </Link>
+                        </button>
+                      </div>
+                      <div>
+                        <div
+                          onClick={toggle}
+                          className="flex dropdown relative"
+                        >
+                          <button className="btn w-[150px] text-start">
+                            Shop
+                          </button>
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              className={`w-6 h-6 ${
+                                isBuka ? "transform rotate-180" : ""
+                              }`}
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </div>
+                          {isBuka && (
+                            <ul className="dropdown-menu border-2 z-50 absolute w-[130px] bg-white shadow-2xl mt-1">
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Shop Grid
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Shop List
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Shop Single
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Page
+                                </a>
+                              </li>
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          onClick={toggle2}
+                          className="flex dropdown relative"
+                        >
+                          <button className="btn w-[150px] text-start">
+                            Pages
+                          </button>
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              className={`w-6 h-6 ${
+                                isPages ? "transform rotate-180" : ""
+                              }`}
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </div>
+                          {isPages && (
+                            <ul className="dropdown-menu border-2 absolute w-[130px] bg-white shadow-2xl mt-1">
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Shop Grid
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Shop List
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Shop Single
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Page
+                                </a>
+                              </li>
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          onClick={toggle3}
+                          className="flex dropdown relative"
+                        >
+                          <button className="btn w-[150px] text-start">
+                            Blog
+                          </button>
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              className={`w-6 h-6 ${
+                                isBlog ? "transform rotate-180" : ""
+                              }`}
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </div>
+                          {isBlog && (
+                            <ul className="dropdown-menu border-2 absolute w-[130px] bg-white shadow-2xl mt-1">
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Blog Grid
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Blog List
+                                </a>
+                              </li>
+                              <li>
+                                <a className="dropdown-item" href="#">
+                                  Blog Details
+                                </a>
+                              </li>
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <button>
+                          <p className="text-black"> Contact</p>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="flex justify-center pl-20">
               <svg

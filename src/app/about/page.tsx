@@ -1,8 +1,9 @@
 "use client";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MdOutlineChair, MdOutlinePayments } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiCustomerService2Fill } from "react-icons/ri";
@@ -10,6 +11,29 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 export default function About() {
+  const count = useMotionValue(0);
+  const count2 = useMotionValue(0);
+  const count3 = useMotionValue(0);
+  const count4 = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+  const rounded2 = useTransform(count2, Math.round);
+  const rounded3 = useTransform(count3, Math.round);
+  const rounded4 = useTransform(count4, Math.round);
+
+  useEffect(() => {
+    const animation = animate(count, 100, { duration: 10 });
+    const animation2 = animate(count2, 15, { duration: 10 });
+    const animation3 = animate(count3, 30, { duration: 10 });
+    const animation4 = animate(count4, 21, { duration: 10 });
+
+    return () => {
+      animation.stop;
+      animation2.stop;
+      animation3.stop;
+      animation4.stop;
+    }
+  }, []);
+
   const listIcon = [
     {
       img: "/img/brand-1.webp",
@@ -43,22 +67,22 @@ export default function About() {
   ];
   const listSelect = [
     {
-      icon: "21",
+      icon:  <motion.div>{rounded4}</motion.div>,
       desc: "+",
       title: "Years of Exprience",
     },
     {
-      icon: "30",
+      icon:  <motion.div>{rounded3}</motion.div>,
       desc: "K",
       title: "Happy Customers",
     },
     {
-      icon: "15",
+      icon: <motion.div>{rounded2}</motion.div>,
       desc: "+",
       title: "Award Winner",
     },
     {
-      icon: "100",
+      icon: <motion.div>{rounded}</motion.div>,
       desc: "%",
       title: "Online Support",
     },

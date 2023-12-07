@@ -2,6 +2,7 @@
 import React from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlinePayments } from "react-icons/md";
+import { motion } from "framer-motion";
 import { RiCustomerService2Fill } from "react-icons/ri";
 export default function Select() {
   const listSelect = [
@@ -20,7 +21,6 @@ export default function Select() {
   ];
   return (
     <div>
-
       {/* mobile */}
       <div className="flex justify-center sm:hidden flex-wrap  text-center">
         {listSelect.map((data: any, index) => (
@@ -76,14 +76,17 @@ export default function Select() {
         ))}
       </div>
 
-
-{/* desktop */}
+      {/* desktop */}
       <div className="container hidden sm:flex px-5 py-10 mx-auto justify-center">
         <div className="grid grid-cols-3 md:grid-cols-1">
           <div className="flex flex-wrap justify-center text-center">
             {listSelect.map((data: any, index) => (
               <div key={index + 1} className="p-4">
-                <div className="">
+                <motion.div
+                  whileHover={{ scale: [null, 1.1, 1.1] }}
+                  transition={{ duration: 0.5 }}
+                  className=""
+                >
                   <div className="border-2 border-yellow-200 px-4 py-6 rounded-lg">
                     <div
                       style={{ color: "black" }}
@@ -101,7 +104,7 @@ export default function Select() {
                       returns, and more at 1000+ top retailers!
                     </p>
                   </div>
-                </div>
+                </motion.div>
                 {/* <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
            <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
            <div 

@@ -6,8 +6,29 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 import { useState } from "react";
 import { Link } from "lucide-react";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import Footer1 from "@/components/footer1";
 const inter = Inter({ subsets: ["latin"] });
+
+function Section({ children }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div ref={ref}>
+      <span
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
+        }}
+      >
+        {children}
+      </span>
+    </div>
+  );
+}
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -19,51 +40,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div
-          className={` h-full w-64 p-2 bg-white fixed z-50 ${
-            showMenu ? "flex flex-col" : "hidden"
-          }`}
-        >
-          <div className="flex justify-between">
-            <div className="flex p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="pt-1 text-base">Furniture</span>
-            </div>
-            <button
-              className="p-2 font-bold"
-              onClick={() => setShowMenu(false)}
-            >
-              X
-            </button>
-          </div>
-          <div className="py-2 px-5">
-            <div className="py-2 px-5 font-semibold">Home</div>
-              <p className="py-2 px-5 font-semibold">About</p>
-              <p className="py-2 px-5 font-semibold">Shop</p>
-              <p className="py-2 px-5 font-semibold">Pages</p>
-              <p className="py-2 px-5 font-semibold">Blog</p>
-            <p className="py-2 px-5 font-semibold">Contact</p>
-          </div>
-        </div>
-        <Navbar onClick={() => setShowMenu(true)} />
+        <Section>
+          <Navbar />
+        </Section>
         {children}
-        <Footer1 />
-        <Footer />
+        <Section>
+          <Footer1 />
+        </Section>
+        <Section>
+          <Footer />
+        </Section>
       </body>
     </html>
   );
