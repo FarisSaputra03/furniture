@@ -1,5 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useInView } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BiShuffle } from "react-icons/bi";
 import { BiLogoFacebook } from "react-icons/bi";
@@ -9,6 +11,26 @@ import { BiLogoTwitter } from "react-icons/bi";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+
+function Section({ children }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div ref={ref}>
+      <span
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
+        {children}
+      </span>
+    </div>
+  );
+}
+
 export default function Detail_Produk() {
   const params = useParams();
   const [selectProduk, setSelectProduk] = useState<any>(null);
@@ -359,8 +381,6 @@ export default function Detail_Produk() {
       href: "/detail_produk",
     },
   ];
-  
-
 
   const filterProduk = (title: any) => {
     const filtered = listProduct.filter((item) => item.id.toString() === title);
@@ -377,364 +397,373 @@ export default function Detail_Produk() {
     <div>
       <div className="bg-white p-10"></div>
       {
-        <div className="flex flex-col items-center justify-between">
-          <div className="relative w-full">
-            <div className="absolute -z-10 w-full">
-              <Image
-                src="/img/detail.jpg"
-                alt="background Image"
-                className="w-full"
-                width={1000}
-                height={1000}
-              />
-            </div>
+        <Section>
+          <div className="flex flex-col items-center justify-between">
+            <div className="relative w-full">
+              <div className="absolute -z-10 w-full">
+                <Image
+                  src="/img/detail.jpg"
+                  alt="background Image"
+                  className="w-full"
+                  width={1000}
+                  height={1000}
+                />
+              </div>
 
-            {/* mobile */}
-            <div className="flex sm:hidden">
-              <div className="max-w-screen-lg m-auto h-[50vh] py-5 my-10 text-center text-xl rounded-2xl">
-                <h1 className="text-3xl text-white italic font-bold">
-                  Product Details
-                </h1>
-                <div className="flex gap-3 text-base">
-                  <Link href="/">
-                    <p className="text-gray-900 font-semibold hover:text-yellow-500">
-                      Home
+              {/* mobile */}
+              <div className="flex sm:hidden">
+                <div className="max-w-screen-lg m-auto h-[50vh] py-5 my-10 text-center text-xl rounded-2xl">
+                  <h1 className="text-3xl text-white italic font-bold">
+                    Product Details
+                  </h1>
+                  <div className="flex gap-3 text-base">
+                    <Link href="/">
+                      <p className="text-gray-900 font-semibold hover:text-yellow-500">
+                        Home
+                      </p>
+                    </Link>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 20"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-8 h-8 pb-2 text-white font-semibold"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+
+                    <p className="text-gray-600 font-semibold">
+                      Product Details
                     </p>
-                  </Link>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-8 h-8 pb-2 text-white font-semibold"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-
-                  <p className="text-gray-600 font-semibold">Product Details</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* desktop */}
-            <div className="hidden sm:flex">
-              <div className="max-w-screen-lg m-auto h-[70vh] py-5 my-60 text-center text-2xl rounded-2xl">
-                <h1 className="text-7xl text-white italic font-bold">
-                  Product Details
-                </h1>
-                <div className="flex gap-3 pt-5 text-base">
-                  <Link href="/">
-                    <p className="text-gray-900 font-semibold hover:text-yellow-500">
-                      Home
+              {/* desktop */}
+              <div className="hidden sm:flex">
+                <div className="max-w-screen-lg m-auto h-[70vh] py-5 my-60 text-center text-2xl rounded-2xl">
+                  <h1 className="text-7xl text-white italic font-bold">
+                    Product Details
+                  </h1>
+                  <div className="flex gap-3 pt-5 text-base">
+                    <Link href="/">
+                      <p className="text-gray-900 font-semibold hover:text-yellow-500">
+                        Home
+                      </p>
+                    </Link>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 20"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-8 h-8 pb-2 text-white font-semibold"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+
+                    <p className="text-gray-600 font-semibold">
+                      Product Details
                     </p>
-                  </Link>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-8 h-8 pb-2 text-white font-semibold"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-
-                  <p className="text-gray-600 font-semibold">Product Details</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Section>
       }
       {selectProduk !== null ? (
-        <section className="text-gray-600 body-font overflow-hidden">
-          <div className="container px-5 py-24 mx-auto">
-            <div className="lg:w-4/5 mx-auto flex flex-wrap">
-              <Image width={400} height={400} src={selectProduk.img} alt="" />
-              <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                  {selectProduk.title}
-                </h1>
-                <h2 className="text-yellow-500 text-3xl title-font font-medium mb-1">
-                  {selectProduk.price}
-                </h2>
-                <div className="flex mb-4">
-                  <span className="flex items-center gap-2 sm:gap-4">
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-yellow-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-yellow-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-yellow-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-yellow-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-gray-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <span className="text-gray-600 hover:text-yellow-500 ml-3">
-                      ( 1 Customer Review )
+        <Section>
+          <section className="text-gray-600 body-font overflow-hidden">
+            <div className="container px-5 py-24 mx-auto">
+              <div className="lg:w-4/5 mx-auto flex flex-wrap">
+                <Image width={400} height={400} src={selectProduk.img} alt="" />
+                <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                  <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                    {selectProduk.title}
+                  </h1>
+                  <h2 className="text-yellow-500 text-3xl title-font font-medium mb-1">
+                    {selectProduk.price}
+                  </h2>
+                  <div className="flex mb-4">
+                    <span className="flex items-center gap-2 sm:gap-4">
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-gray-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <span className="text-gray-600 hover:text-yellow-500 ml-3">
+                        ( 1 Customer Review )
+                      </span>
                     </span>
-                  </span>
-                </div>
-                <div className="flex py-5 gap-4">
-                  <span className="mr-3">Color:</span>
-                  <button className="border-2 border-gray-300 rounded w-6 h-6 focus:outline-none"></button>
-                  <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded w-6 h-6 focus:outline-none"></button>
-                  <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded w-6 h-6 focus:outline-none"></button>
-                </div>
-                <p className="leading-relaxed text-sm">
-                  Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do
-                  eiusmod temporf incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis tyu nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate.
-                </p>
+                  </div>
+                  <div className="flex py-5 gap-4">
+                    <span className="mr-3">Color:</span>
+                    <button className="border-2 border-gray-300 rounded w-6 h-6 focus:outline-none"></button>
+                    <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded w-6 h-6 focus:outline-none"></button>
+                    <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded w-6 h-6 focus:outline-none"></button>
+                  </div>
+                  <p className="leading-relaxed text-sm">
+                    Lorem ipsum dolor sit amet, consectet adipisicing elit, sed
+                    do eiusmod temporf incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis tyu nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate.
+                  </p>
 
-                {/* mobile */}
-                <div className="flex sm:hidden">
-                  <div className="mt-6 gap-2 items-center pb-5 mb-5 grid grid-cols-3 md:grid-cols-4">
-                    <div className="flex justify-between  bg-gray-600 text-white py-2 px-2 rounded">
-                      <div
-                        onClick={() => {
-                          if (jumlahBarang > 1) {
-                            setJumlahBarang(jumlahBarang - 1);
-                          }
-                        }}
-                      >
+                  {/* mobile */}
+                  <div className="flex sm:hidden">
+                    <div className="mt-6 gap-2 items-center pb-5 mb-5 grid grid-cols-3 md:grid-cols-4">
+                      <div className="flex justify-between  bg-gray-600 text-white py-2 px-2 rounded">
+                        <div
+                          onClick={() => {
+                            if (jumlahBarang > 1) {
+                              setJumlahBarang(jumlahBarang - 1);
+                            }
+                          }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M18 12H6"
+                            />
+                          </svg>
+                        </div>
+                        <p>{jumlahBarang}</p>
+                        <div
+                          onClick={() => {
+                            setJumlahBarang(jumlahBarang + 1);
+                          }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 6v12m6-6H6"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <button className="rounded  w-full px-1 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-gray-600 bg-gray-600 text-white">
+                          <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-yellow-500 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                          <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
+                            Add To Cart
+                          </span>
+                        </button>
+                      </div>
+                      <div className="py-2 w-14 px-4 rounded  bg-gray-600 hover:bg-yellow-500">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                           strokeWidth="1.5"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-6 h-6 text-white"
                         >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M18 12H6"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                           />
                         </svg>
                       </div>
-                      <p>{jumlahBarang}</p>
-                      <div
-                        onClick={() => {
-                          setJumlahBarang(jumlahBarang + 1);
-                        }}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v12m6-6H6"
-                          />
-                        </svg>
+                      <div className="py-2 px-4 w-14 rounded bg-gray-600 hover:bg-yellow-500 text-white">
+                        <BiShuffle size="1.5em" />
                       </div>
-                    </div>
-                    <div>
-                      <button className="rounded  w-full px-1 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-gray-600 bg-gray-600 text-white">
-                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-yellow-500 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                        <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
-                          Add To Cart
-                        </span>
-                      </button>
-                    </div>
-                    <div className="py-2 w-14 px-4 rounded  bg-gray-600 hover:bg-yellow-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6 text-white"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="py-2 px-4 w-14 rounded bg-gray-600 hover:bg-yellow-500 text-white">
-                      <BiShuffle size="1.5em" />
                     </div>
                   </div>
-                </div>
 
-                {/* desktop */}
-                <div className="hidden sm:flex">
-                  <div className="flex mt-6 gap-2 items-center pb-5 mb-5">
-                    <div className="flex justify-between gap-5 bg-gray-600 text-white py-2 px-4 rounded">
-                      <div
-                        onClick={() => {
-                          if (jumlahBarang > 1) {
-                            setJumlahBarang(jumlahBarang - 1);
-                          }
-                        }}
-                      >
+                  {/* desktop */}
+                  <div className="hidden sm:flex">
+                    <div className="flex mt-6 gap-2 items-center pb-5 mb-5">
+                      <div className="flex justify-between gap-5 bg-gray-600 text-white py-2 px-4 rounded">
+                        <div
+                          onClick={() => {
+                            if (jumlahBarang > 1) {
+                              setJumlahBarang(jumlahBarang - 1);
+                            }
+                          }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M18 12H6"
+                            />
+                          </svg>
+                        </div>
+                        <p>{jumlahBarang}</p>
+                        <div
+                          onClick={() => {
+                            setJumlahBarang(jumlahBarang + 1);
+                          }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 6v12m6-6H6"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <button className="rounded px-4 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-gray-600 bg-gray-600 text-white">
+                          <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-yellow-500 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                          <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
+                            Add To Cart
+                          </span>
+                        </button>
+                      </div>
+                      <div className="py-2 px-4 rounded bg-gray-600 hover:bg-yellow-500">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                           strokeWidth="1.5"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-6 h-6 text-white"
                         >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M18 12H6"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                           />
                         </svg>
                       </div>
-                      <p>{jumlahBarang}</p>
-                      <div
-                        onClick={() => {
-                          setJumlahBarang(jumlahBarang + 1);
-                        }}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v12m6-6H6"
-                          />
-                        </svg>
+                      <div className="py-2 px-4 rounded bg-gray-600 hover:bg-yellow-500 text-white">
+                        <BiShuffle size="1.5em" />
                       </div>
-                    </div>
-                    <div>
-                      <button className="rounded px-4 py-2 m-1 overflow-hidden relative group cursor-pointer font-medium border-gray-600 bg-gray-600 text-white">
-                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20  bg-yellow-500 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                        <span className="relative text-White italic transition duration-300 group-hover:text-white ease">
-                          Add To Cart
-                        </span>
-                      </button>
-                    </div>
-                    <div className="py-2 px-4 rounded bg-gray-600 hover:bg-yellow-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6 text-white"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="py-2 px-4 rounded bg-gray-600 hover:bg-yellow-500 text-white">
-                      <BiShuffle size="1.5em" />
                     </div>
                   </div>
-                </div>
 
-                <div className="">
-                  <div className="flex gap-2 py-1">
-                    <p>Sku:</p>
-                    <p>Ch-256xl</p>
-                  </div>
-                  <div className="flex gap-2 py-1">
-                    <p>Categories:</p>
-                    <p>Office, Home</p>
-                  </div>
-                  <div className="flex gap-2 py-1">
-                    <p>Tag:</p>
-                    <p>Furniture</p>
-                  </div>
-                  <div className="flex gap-4 py-1">
-                    <p>Share</p>
-                    <p>
-                      <BiLogoFacebook size="1.5em" />
-                    </p>
-                    <p>
-                      <BiLogoDribbble size="1.5em" />
-                    </p>
-                    <p>
-                      <BiLogoPinterestAlt size="1.5em" />
-                    </p>
-                    <p>
-                      <BiLogoTwitter size="1.5em" />
-                    </p>
-                    <p>
-                      <BiLogoLinkedinSquare size="1.5em" />
-                    </p>
+                  <div className="">
+                    <div className="flex gap-2 py-1">
+                      <p>Sku:</p>
+                      <p>Ch-256xl</p>
+                    </div>
+                    <div className="flex gap-2 py-1">
+                      <p>Categories:</p>
+                      <p>Office, Home</p>
+                    </div>
+                    <div className="flex gap-2 py-1">
+                      <p>Tag:</p>
+                      <p>Furniture</p>
+                    </div>
+                    <div className="flex gap-4 py-1">
+                      <p>Share</p>
+                      <p>
+                        <BiLogoFacebook size="1.5em" />
+                      </p>
+                      <p>
+                        <BiLogoDribbble size="1.5em" />
+                      </p>
+                      <p>
+                        <BiLogoPinterestAlt size="1.5em" />
+                      </p>
+                      <p>
+                        <BiLogoTwitter size="1.5em" />
+                      </p>
+                      <p>
+                        <BiLogoLinkedinSquare size="1.5em" />
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Section>
       ) : null}
     </div>
   );
