@@ -450,14 +450,17 @@ export default function About() {
                 {listTeam.map((data: any, index) => (
                   <div key={index + 1} className="flex justify-center">
                     <div className="p-2">
-                      <Image
-                        className="hover:scale-105 transition duration-500 cursor-pointer object-cover"
-                        height={500}
-                        width={400}
-                        src={data.img}
-                        alt="team"
-                      />
-                      <div className="flex justify-center pt-8">
+                      <motion.div
+                        whileHover={{ scale: 1.2, rotate: 3 }}
+                      >
+                        <Image
+                          height={350}
+                          width={350}
+                          src={data.img}
+                          alt="team"
+                        />
+                      </motion.div>
+                      <div className="flex justify-center pt-16">
                         <h2 className="text-black font-semibold text-xl">
                           {data.name}
                         </h2>

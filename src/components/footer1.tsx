@@ -6,7 +6,7 @@ export default function Footer1() {
   return (
     <footer className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400">
       <div className="py-8 flex items-start justify-between sm:flex-row flex-col">
-        <div className="flex title-font py-2 font-medium items-center text-gray-900 ">
+        <div className="flex title-font px-3 py-2 font-medium items-center text-gray-900 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -22,9 +22,9 @@ export default function Footer1() {
 
           <span className=" text-xl">Furniture</span>
         </div>
-        <div className="flex py-2">
+        <div className="sm:px-0 px-4 flex py-2 items-center">
           <RiCustomerService2Fill size="3.5rem" />
-          <div className="px-4">
+          <div className="px-4 space-x-1 flex">
             <p className="text-black font-semibold italic">Call Us:</p>
             <div>
               <p className="text-black font-semibold italic">
@@ -33,7 +33,7 @@ export default function Footer1() {
             </div>
           </div>
         </div>
-        <div className="pt-3">
+        <div className="sm:px-0 px-4 sm:pt-6 items-center">
           <Image
             src="/img/payment.webp"
             width={192}
@@ -41,14 +41,14 @@ export default function Footer1() {
             alt="payment"
           />
         </div>
-        <div className=" py-2 flex sm:flex-row flex-col">
+        <div className="pt-5 sm:px-0 px-2 sm:pt-3 space-x-2 items-center flex sm:flex-row flex-row">
           <div className="py-2 px-2">
-            <p className="text-black font-semibold italic text-lg">
+            <p className="text-black font-semibold italic text-lg sm:text-xl">
               Subscribe Now :
             </p>
           </div>
           <div>
-            <div className="relative w-40 sm:w-auto xl:mr-4 flex lg:mr-0 sm:mr-4 mr-2">
+            <div className="relative w-[200px] sm:w-auto xl:mr-4 flex lg:mr-0 sm:mr-4 mr-2">
               <input
                 type="email"
                 id="email"
